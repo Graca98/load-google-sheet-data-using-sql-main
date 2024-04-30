@@ -17,6 +17,7 @@ const getSheetData = ({ sheetID, sheetName, query, callback }) => {
     let data = [];
     const columns = jsData.table.cols;
     const rows = jsData.table.rows;
+    console.log(rows);
     let rowObject;
     let cellData;
     let propName;
@@ -42,3 +43,19 @@ const getSheetData = ({ sheetID, sheetName, query, callback }) => {
     return data;
   }
 };
+
+
+
+  // function responseToObjects(res) {
+  //   // credit to Laurence Svekis https://www.udemy.com/course/sheet-data-ajax/
+  //   const jsData = JSON.parse(res.substring(47).slice(0, -2));
+  //   console.log(jsData);
+  //   let data = [];
+  //   const columns = jsData.table.cols;
+  //   const rows = jsData.table.rows;
+  //   console.log(rows[1].c[1].v);
+  //   // let user = {
+  //   //   name: 
+  //   // }
+  //   return rows;
+  // }
