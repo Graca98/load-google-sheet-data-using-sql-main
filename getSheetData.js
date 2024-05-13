@@ -17,7 +17,6 @@ const getSheetData = ({ sheetID, sheetName, query, callback }) => {
     let data = [];
     const columns = jsData.table.cols;
     const rows = jsData.table.rows;
-    console.log(rows);
     let rowObject;
     let cellData;
     let propName;
@@ -25,7 +24,7 @@ const getSheetData = ({ sheetID, sheetName, query, callback }) => {
       rowObject = {};
       for (let c = 0, colMax = columns.length; c < colMax; c++) {
         cellData = rows[r]["c"][c];
-        propName = columns[c].label;
+        propName = columns[c].label || `col_${c}`;
         if (cellData === null) {
           rowObject[propName] = "";
         } else if (
@@ -39,8 +38,8 @@ const getSheetData = ({ sheetID, sheetName, query, callback }) => {
       }
       data.push(rowObject);
     }
-    console.log(data);
-    return data;
+
+     return data;
   }
 };
 

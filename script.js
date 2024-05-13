@@ -1,9 +1,19 @@
 window.addEventListener("DOMContentLoaded", (event) => {
   const sheetDataHandler = (sheetData) => {
     console.log("sheet data: ", sheetData);
-    console.log("Na řádku 1 je:", sheetData[1][""]);
-    //ADD YOUR CODE TO WORK WITH sheetData ARRAY OF OBJECTS HERE
+    console.log("Na řádku 1 je:", sheetData.map((u) => {
+      return u.col_0
+    }));
+
+    let user = document.getElementById("user");
+
+    sheetData.map((nick) => {
+      let p = document.createElement('p');  // Přesunutí vytvoření 'p' elementu dovnitř cyklu
+      p.innerText = nick.col_0;             // Přiřazení jména k textovému obsahu 'p'
+      user.appendChild(p);                 // Přidání 'p' elementu do DOM
+    });
   };
+    //ADD YOUR CODE TO WORK WITH sheetData ARRAY OF OBJECTS HERE
 
   // --==== QUERY EXAMPLES ====--
   // --==== USE LETTERS FOR COLUMN NAMES ====--
